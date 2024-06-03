@@ -14,8 +14,8 @@ public class Task {
         description = "na";
     }
     Task(String name, String description) {
-        name = name;
-        description = description;
+        this.name = name;
+        this.description = description;
     }
 
     public void setName(String name) {
@@ -36,16 +36,25 @@ public class Task {
 
     @Override
     public int hashCode() {
-        return (getName()+getDescription()).hashCode();
+        return getName().hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
         return this.hashCode() == obj.hashCode();
     }
 
     @Override
     public String toString() {
-        return String.join(" ", getName(), getDescription());
+        return String.join(" - ", getName(), getDescription());
     }
 }

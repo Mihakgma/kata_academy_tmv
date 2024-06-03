@@ -7,7 +7,14 @@ import java.util.List;
 public class TaskManager {
     protected Task[] tasks;
     TaskManager() {
-        tasks = new Task[0];
+        tasks = new Task[] {};
+    }
+    TaskManager(Task task) {
+        if (getTasks() == null) {
+            setTasks(new Task[0]);
+        }
+//        this();
+        addTask(task);
     }
 
     private void setTasks(Task[] tasks) {
@@ -21,7 +28,7 @@ public class TaskManager {
     * Adds new task to tasks field (Task[] array)
     * */
     public void addTask(Task newTask) {
-        if (taskCreatedBefore(newTask)) {
+        if (getTasks().length > 0 && taskCreatedBefore(newTask)) {
             print("Задача с наименованием: <" + newTask.getName() + "> и описанием: <" + newTask.getDescription() +
                   "> была создана ранее.");
             print("Пожалуйста, попробуйте изменить наименование и / или ее описание, а затем повторить ввод.");
@@ -29,13 +36,18 @@ public class TaskManager {
             return;
         }
         int tasksNumber = getTasks().length;
-        Task[] tempTasks = new Task[tasksNumber + 1];
+//        Task[] tempTasks = new Task[tasksNumber + 1];
+        Task[] tempTasks = Arrays.copyOf(getTasks(), tasksNumber + 1);
         tempTasks[tasksNumber] = newTask;
         setTasks(tempTasks);
     }
     public void removeTask(String name) {
         if (taskCreatedBefore(name)) {
             print("Удаление задачи с именем <" + name + "> инициализируется ...");
+            Task[] tmpArray = getTasks();
+            Arrays.asList(tmpArray).remove(new Task(name, ""));
+            setTasks(tmpArray);
+//            setTasks(tmpTaskList);
 //            ArrayList<Task> tmpArray = new ArrayList.(getTasks());
 //            Task[] tempArray = new Task[getTasks().length];
 //            for (int i = 0; i < getTasks().length; i++) {
@@ -51,14 +63,8 @@ public class TaskManager {
     }
     protected boolean taskCreatedBefore(String name) {
         List<Task> tasksCreated = Arrays.asList(getTasks());
-        boolean elementFound = false;
-        for (Task t: tasksCreated) {
-            if (t.getName() == name) {
-                elementFound = true;
-                break;
-            }
-        }
-        if (elementFound == false){
+        boolean elementFound = tasksCreated.contains(name);
+        if (!elementFound) {
             print("Задачи с введенным названием не найдено!");
         }
         return elementFound;
