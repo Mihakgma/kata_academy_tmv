@@ -10,6 +10,8 @@ public class Main {
         taskManager.removeTask("na");
         taskManager.removeTask("имя задачи");
         taskManager.viewTasks();
+        Menu menu = new Menu();
+        menu.start();
     }
 
     static void print(Object obj) {
