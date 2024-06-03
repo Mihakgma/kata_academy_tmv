@@ -50,7 +50,7 @@ public class Task {
             return false;
         }
         Task other = (Task) obj;
-        return Objects.equals(name, other.name) && Objects.equals(description, other.description);
+        return Objects.equals(name, other.name);
     }
 
     @Override

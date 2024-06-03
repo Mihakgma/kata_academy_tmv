@@ -1,8 +1,17 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ @author Mikhail Tabakaev
+ @version 1.001
+
+ Creating of the object of this class and call of the start method provides
+ the initialization of the main menu dialogue in which you can add new tasks and delete them
+ from the list of the tasks created during current dialogue session
+ */
 public class Menu {
     public void start() {
+        print("Здаравствуйте, Уважаемый Друг!!!\n");
         int answer = 0;
         TaskManager taskManager = new TaskManager();
         Scanner console = new Scanner(System.in);
@@ -33,7 +42,7 @@ public class Menu {
         console = null;
         taskManager = null;
     }
-    void addTask(TaskManager taskManager) {
+    protected void addTask(TaskManager taskManager) {
         Scanner scanner = new Scanner(System.in);
         print("Введите имя задачи:");
         String name = scanner.nextLine();
@@ -41,7 +50,7 @@ public class Menu {
         String description = scanner.nextLine();
         taskManager.addTask(new Task(name, description));
     }
-    void removeTask(TaskManager taskManager) {
+    protected void removeTask(TaskManager taskManager) {
         Scanner scanner = new Scanner(System.in);
         print("Введите имя задачи, которую вы хотите удалить:");
         String name = scanner.nextLine();

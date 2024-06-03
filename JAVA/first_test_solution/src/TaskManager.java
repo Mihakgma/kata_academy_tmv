@@ -28,7 +28,7 @@ public class TaskManager {
         if (getTasks().length > 0 && taskCreatedBefore(newTask)) {
             print("Задача с наименованием: <" + newTask.getName() + "> и описанием: <" + newTask.getDescription() +
                   "> была создана ранее.");
-            print("Пожалуйста, попробуйте изменить наименование и / или ее описание, а затем повторить ввод.");
+            print("Пожалуйста, попробуйте изменить ее наименование, а затем повторить ввод.");
             print("Благодарю за понимание!");
             return;
         }
@@ -43,18 +43,21 @@ public class TaskManager {
             print("Удаление задачи с именем <" + name + "> инициализируется ...");
             int counter = 0;
             for (Task task: getTasks()) {
-                if (task.getName() == name) {
-                    counter = counter + 1;
+                if (task.getName().equals(name)) {
+                    counter++;
                 }
             }
             Task[] tmpArray = new Task[getTasks().length-counter];
             int j = 0;
             for (Task t: getTasks()) {
-                if (t.getName() != name) {
+                if (!t.getName().equals(name)) {
                     tmpArray[j] = t;
                     j++;
+                } else {
+                    t = null;
                 }
             }
+//            print(Arrays.toString(tmpArray));
             setTasks(tmpArray);
         }
     }

@@ -13,8 +13,4 @@ public class Main {
         Menu menu = new Menu();
         menu.start();
     }
-
-    static void print(Object obj) {
-        System.out.println(obj);
-    }
 }
