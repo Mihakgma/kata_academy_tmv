@@ -43,4 +43,9 @@ public class Task {
     public boolean equals(Object obj) {
         return this.hashCode() == obj.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return String.join(" ", getName(), getDescription());
+    }
 }
