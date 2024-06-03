@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
 @author Mikhail Tabakaev
 @version 1.001
@@ -36,7 +38,7 @@ public class Task {
 
     @Override
     public int hashCode() {
-        return getName().hashCode();
+        return Objects.hash(name);
     }
 
     @Override
@@ -44,13 +46,11 @@ public class Task {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        return String.valueOf(this.hashCode()).equals(String.valueOf(obj.hashCode()));
+        Task other = (Task) obj;
+        return Objects.equals(name, other.name) && Objects.equals(description, other.description);
     }
 
     @Override

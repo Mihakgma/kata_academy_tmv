@@ -1,8 +1,5 @@
-//import jdk.incubator.vector.VectorOperators;
-
 import java.util.Arrays;
 import java.util.List;
-//import java.util.ArrayList;
 
 public class TaskManager {
     protected Task[] tasks;
@@ -22,7 +19,7 @@ public class TaskManager {
     }
 
     public Task[] getTasks() {
-        return tasks;
+        return this.tasks;
     }
     /*
     * Adds new task to tasks field (Task[] array)
