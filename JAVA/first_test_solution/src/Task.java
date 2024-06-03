@@ -50,7 +50,7 @@ public class Task {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return this.hashCode() == obj.hashCode();
+        return String.valueOf(this.hashCode()).equals(String.valueOf(obj.hashCode()));
     }
 
     @Override

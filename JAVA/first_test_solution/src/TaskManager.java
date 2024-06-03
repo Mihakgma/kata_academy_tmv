@@ -44,15 +44,21 @@ public class TaskManager {
     public void removeTask(String name) {
         if (taskCreatedBefore(name)) {
             print("Удаление задачи с именем <" + name + "> инициализируется ...");
-            Task[] tmpArray = getTasks();
-            Arrays.asList(tmpArray).remove(new Task(name, ""));
+            int counter = 0;
+            for (Task task: getTasks()) {
+                if (task.getName() == name) {
+                    counter = counter + 1;
+                }
+            }
+            Task[] tmpArray = new Task[getTasks().length-counter];
+            int j = 0;
+            for (Task t: getTasks()) {
+                if (t.getName() != name) {
+                    tmpArray[j] = t;
+                    j++;
+                }
+            }
             setTasks(tmpArray);
-//            setTasks(tmpTaskList);
-//            ArrayList<Task> tmpArray = new ArrayList.(getTasks());
-//            Task[] tempArray = new Task[getTasks().length];
-//            for (int i = 0; i < getTasks().length; i++) {
-//
-//            }
         }
     }
     public void viewTasks() {
@@ -63,7 +69,7 @@ public class TaskManager {
     }
     protected boolean taskCreatedBefore(String name) {
         List<Task> tasksCreated = Arrays.asList(getTasks());
-        boolean elementFound = tasksCreated.contains(name);
+        boolean elementFound = tasksCreated.contains(new Task(name, ""));
         if (!elementFound) {
             print("Задачи с введенным названием не найдено!");
         }
