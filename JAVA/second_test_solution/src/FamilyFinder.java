@@ -13,7 +13,7 @@ public class FamilyFinder {
      * @param houses - list of saved houses
      */
     static public void printLargeFamilies(List<House> houses) {
-        HashMap<House, Set<Room>> housesMap = HousesMarker.markHouses(houses);
+        HashMap<House, Set<Room>> housesMap = HousesMarker.filterHouses(houses);
         printFamilies(housesMap);
     }
 
@@ -26,9 +26,9 @@ public class FamilyFinder {
         print("");
     }
     static public void printFamilies(List<House> houses) {
-        print("Starting printing List");
+//        print("Starting printing List");
         for (House house: houses) {
-            print(house);
+//            print(house);
             print(String.format("Дом #%d", house.getNumber()));
             for (Room room: house.getRooms()) {
                 print(String.format("Квартира #%d:", room.getNumber()));
@@ -39,7 +39,7 @@ public class FamilyFinder {
         }
     }
     static public void printFamilies(HashMap<House, Set<Room>> houses) {
-        System.out.println("Printing " + houses);
+//        System.out.println("Printing " + houses);
         for (House house: houses.keySet()) {
             print(String.format("Дом #%d", house.getNumber()));
             Set<Room> rooms = houses.get(house);

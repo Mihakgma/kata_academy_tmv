@@ -17,12 +17,14 @@ public class Menu {
             int houseDigit = inputDialogue("Введите номер дома:", maxNumber, houses, true);
             House house = new House(houseDigit);
             house.setNumber(houseDigit);
+            houses.add(house);
             int roomsNumber = inputDialogue("Введите количество квартир в доме:", maxValue);
             ArrayList<Room> rooms = new ArrayList<Room>(roomsNumber);
             for (int j = 0; j < roomsNumber; j++) {
                 int roomDigit = inputDialogue("Введите номер квартиры:", maxNumber);
                 Room room = new Room(roomDigit);
                 room.setNumber(roomDigit);
+                house.appendRoom(room);
                 // etc... + addRoom && addHuman methods in House && Room classes
                 // add hashCode() + equals() methods in House && Room classes
                 // add check if the inputted house or flat number has already been reserved for current house (?!)

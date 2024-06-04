@@ -20,4 +20,7 @@ public class House {
     public void setNumber(int number) {
         this.number = number;
     }
+    public void appendRoom(Room room) {
+        this.rooms.add(room);
+    }
 }

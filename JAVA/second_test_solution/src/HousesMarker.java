@@ -8,7 +8,7 @@ public class HousesMarker {
     static final int CHILDREN_BORDER_AGE = 18;
     // more this quality of children is a large family
     static final int CHILDREN_BORDER_NUMBER = 2;
-    static HashMap<House, Set<Room>> markHouses(List<House> houses) {
+    static HashMap<House, Set<Room>> filterHouses(List<House> houses) {
         HashMap<House, Set<Room>> markedHouses = new HashMap<>();
         for (House house: houses) {
             Set<Room> rooms = null;
