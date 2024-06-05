@@ -23,4 +23,8 @@ public class House {
     public void appendRoom(Room room) {
         this.rooms.add(room);
     }
+    @Override
+    public String toString() {
+        return String.format("Дом #%d", getNumber());
+    }
 }

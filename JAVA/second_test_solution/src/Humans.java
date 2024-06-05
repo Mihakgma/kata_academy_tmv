@@ -31,4 +31,8 @@ public class Humans {
     public int getAge() {
         return age;
     }
+    @Override
+    public String toString() {
+        return getName() + " " + getLastName();
+    }
 }

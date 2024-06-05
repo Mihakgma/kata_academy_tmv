@@ -28,12 +28,11 @@ public class FamilyFinder {
     static public void printFamilies(List<House> houses) {
 //        print("Starting printing List");
         for (House house: houses) {
-//            print(house);
-            print(String.format("Дом #%d", house.getNumber()));
+            print(house);
             for (Room room: house.getRooms()) {
-                print(String.format("Квартира #%d:", room.getNumber()));
+                print(room);
                 for (Humans human: room.getHumans()) {
-                    print(human.getName() + " " + human.getLastName());
+                    print(human);
                 }
             }
         }
@@ -41,12 +40,12 @@ public class FamilyFinder {
     static public void printFamilies(HashMap<House, Set<Room>> houses) {
 //        System.out.println("Printing " + houses);
         for (House house: houses.keySet()) {
-            print(String.format("Дом #%d", house.getNumber()));
+            print(house);
             Set<Room> rooms = houses.get(house);
             for (Room room: rooms) {
-                print(String.format("Квартира #%d:", room.getNumber()));
+                print(room);
                 for (Humans human: room.getHumans()) {
-                    print(human.getName() + " " + human.getLastName());
+                    print(human);
                 }
             }
         }

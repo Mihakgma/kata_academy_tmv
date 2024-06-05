@@ -19,4 +19,11 @@ public class Room {
     public void setNumber(int number) {
         this.number = number;
     }
+    public void appendHuman(Humans human) {
+        this.humans.add(human);
+    }
+    @Override
+    public String toString() {
+        return String.format("Квартира #%d:", getNumber());
+    }
 }
