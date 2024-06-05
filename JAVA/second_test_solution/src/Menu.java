@@ -22,9 +22,10 @@ public class Menu {
                 int roomDigit = inputDialogue("Введите номер квартиры:", maxNumber, house.getRooms());
                 Room room = new Room(roomDigit);
                 house.appendRoom(room);
-                // etc... + addRoom && addHuman methods in House && Room classes +
+                // etc... 
+                // addRoom && addHuman methods in House && Room classes +
                 // add hashCode() + equals() methods in House && Room classes +
-                // add check if the inputted house or flat number has already been reserved for current house (?!)
+                // add check if the inputted house or flat number has already been reserved for current house (?!) +
                 // override toString() method for House && Room && Humans classes +
                 // printFamilies() method looks like doesnt work properly...need to fix it(?!)
             }
