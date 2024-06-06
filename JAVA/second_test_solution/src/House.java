@@ -25,7 +25,7 @@ public class House {
 
     @Override
     public String toString() {
-        return String.format("Дом #%d", getNumber());
+        return String.format("\nДом #%d", getNumber());
     }
     @Override
     public int hashCode() {

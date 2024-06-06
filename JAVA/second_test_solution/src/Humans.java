@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Humans {
     protected String name;
     protected String lastName;
@@ -34,5 +36,22 @@ public class Humans {
     @Override
     public String toString() {
         return getName() + " " + getLastName();
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getLastName(), getAge());
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Humans other = (Humans) obj;
+        return Objects.equals(getName(), other.getName())  &&
+                Objects.equals(getLastName(), other.getLastName()) &&
+                Objects.equals(getAge(), other.getAge());
     }
 }
